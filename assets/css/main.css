@@ -2470,7 +2470,7 @@ input, select, textarea {
 			}
 
 		.icon.major {
-			background: #272833;
+			background: #191919;
 			border-radius: 100%;
 			cursor: default;
 			display: inline-block;
@@ -2503,7 +2503,7 @@ input, select, textarea {
 				}
 
 				.icon.major.alt:before {
-					color: #272833 !important;
+					color: #202020 !important;
 					text-shadow: 1px 0 0 #ffffff, -1px 0 0 #ffffff, 0 1px 0 #ffffff, 0 -1px 0 #ffffff;
 				}
 
@@ -3353,7 +3353,7 @@ input, select, textarea {
 				-webkit-transform: rotate(45deg);
 				-ms-transform: rotate(45deg);
 				transform: rotate(45deg);
-				background: #272833;
+				background: #202020;
 				content: '';
 				display: block;
 				height: 1em;
@@ -3451,7 +3451,7 @@ input, select, textarea {
 
 	#banner {
 		background-attachment: fixed;
-		background-color: #272833;
+		background-color: #202020;
 		background-image: url("../../images/banner.jpg");
 		background-position: center center;
 		background-size: cover;
@@ -3532,7 +3532,7 @@ input, select, textarea {
 /* Footer */
 
 	#footer {
-		background: #272833;
+		background: #202020;
 		padding: 6em 0;
 		text-align: center;
 	}
@@ -3555,7 +3555,7 @@ input, select, textarea {
 			}
 
 			#footer .icons .icon.alt:before {
-				color: #272833 !important;
+				color: #202002 !important;
 				text-shadow: 1px 0 0 rgba(255, 255, 255, 0.5), -1px 0 0 rgba(255, 255, 255, 0.5), 0 1px 0 rgba(255, 255, 255, 0.5), 0 -1px 0 rgba(255, 255, 255, 0.5);
 			}
 
@@ -3887,7 +3887,7 @@ input, select, textarea {
 				top: 0;
 				width: 100%;
 				z-index: 10001;
-				background: #272833;
+				background: #202020;
 				box-shadow: 0 0.125em 0.125em 0 rgba(0, 0, 0, 0.125);
 			}
 
