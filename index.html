@@ -37,7 +37,7 @@
 								</ul>
 							</li>
 							<li><a href="elements.html">Elements</a></li>
-							<li><a href="#" class="button primary">Sign Up</a></li>
+							<li><a href="#two" class="button primary">Sign Up</a></li>
 						</ul>
 					</nav>
 				</header>
@@ -55,7 +55,7 @@
 					<a href="#one" class="goto-next scrolly">Next</a>
 				</section>
 			<!-- One -->
-				<section id="four" class="wrapper style1 special fade-up">
+				<section id="one" class="wrapper style1 special fade-up">
 					<div class="container">
 						<header class="major">
 							<h2>Accumsan sed tempus adipiscing blandit</h2>
@@ -104,19 +104,51 @@
 				</section>
 
 			<!-- Two -->
-				<section id="five" class="wrapper style2 special fade">
-					<div class="container">
-						<header>
-							<h2>Magna faucibus lorem diam</h2>
-							<p>Ante metus praesent faucibus ante integer id accumsan eleifend</p>
-						</header>
-						<form method="post" action="#" class="cta">
-							<div class="row gtr-uniform gtr-50">
-								<div class="col-8 col-12-xsmall"><input type="email" name="email" id="email" placeholder="Your Email Address" /></div>
-								<div class="col-4 col-12-xsmall"><input type="submit" value="Get Started" class="fit primary" /></div>
-							</div>
-						</form>
+				<section id="two" class="wrapper style2 special fade">
+				<div class="container">
+					<header>
+					<h2>Magna faucibus lorem diam</h2>
+					<p>Ante metus praesent faucibus ante integer id accumsan eleifend</p>
+					</header>
+
+					<form id="signup-form" class="cta">
+					<div class="row gtr-uniform gtr-50">
+						<div class="col-8 col-12-xsmall">
+						<input type="email" name="email" id="email" placeholder="Your Email Address" required />
+						</div>
+						<div class="col-4 col-12-xsmall">
+						<input type="submit" value="Sign Up" class="fit primary" />
+						</div>
 					</div>
+					</form>
+
+					<script>
+					document.addEventListener("DOMContentLoaded", function() {
+						const form = document.getElementById("signup-form");
+						if (!form) return;
+
+						form.addEventListener("submit", function(e) {
+						e.preventDefault();
+
+						const submitButton = form.querySelector('input[type="submit"]');
+						submitButton.value = "Submitting...";
+						submitButton.disabled = true;
+
+						// Prepare form data for sendBeacon
+						const params = new URLSearchParams();
+						params.append("email", form.email.value);
+
+						// Send email in background
+						navigator.sendBeacon("https://script.google.com/macros/s/AKfycbxG6yrlaM83XOP_CPaMASzCFdasH4rPQZV9dqGBUKD71JKrLMPshBoks-3P3AGCFPP-/exec", params);
+
+						// Delay slightly to ensure button text renders before redirect
+						setTimeout(() => {
+							window.location.href = "thankyou.html";
+						}, 50);
+						});
+					});
+					</script>
+				</div>
 				</section>
 
 			<!-- Footer -->
