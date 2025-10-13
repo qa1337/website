@@ -3201,7 +3201,7 @@ input, select, textarea {
 	}
 
 		.wrapper.style2 {
-			background: #be524b;
+			background: #1f3e76;
 		}
 
 			.wrapper.style2 input[type="text"]:focus,
@@ -3236,7 +3236,7 @@ input, select, textarea {
 			.wrapper.style2 input[type="button"].primary,
 			.wrapper.style2 .button.primary {
 				background-color: #fafafa;
-				color: #be524b !important;
+				color: #1f3e76 !important;
 			}
 
 				.wrapper.style2 input[type="submit"].primary:hover, .wrapper.style2 input[type="submit"].primary:active,
