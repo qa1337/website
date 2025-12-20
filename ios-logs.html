@@ -1,0 +1,278 @@
+<!DOCTYPE HTML>
+<!--
+	Landed by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>iOS Crash & Error Logs | QA 1337</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+
+		<style>
+			/* Clean image */
+			.clean-image img {
+				width: 100%;
+				border-radius: 6px;
+			}
+
+			/* Quick links */
+			.anchor-links {
+				margin: 1.5em 0;
+			}
+			.anchor-links a {
+				margin-right: 1.5em;
+				font-weight: 600;
+				font-size: 0.8em;
+			}
+
+			.heading-anchor {
+				margin-left: 0.5em;
+				font-size: 0.8em;
+				text-decoration: none;
+				opacity: 0;
+				transition: opacity 0.2s ease;
+			}
+
+			h2:hover .heading-anchor,
+			h3:hover .heading-anchor,
+			h4:hover .heading-anchor {
+				opacity: 1;
+			}
+
+			details {
+				margin: 1em 0;
+			}
+		</style>
+	</head>
+
+	<body class="is-preload landing">
+		<div id="page-wrapper">
+
+			<!-- Header -->
+				<header id="header">
+					<h1 id="logo"><a href="index.html">QA 1337</a></h1>
+					<nav id="nav">
+						<ul>
+							<li>
+								<a href="#">Toolbelt</a>
+								<ul>
+									<li><a href="left-sidebar.html">Left Sidebar</a></li>
+									<li><a href="right-sidebar.html">Right Sidebar</a></li>
+									<li><a href="no-sidebar.html">No Sidebar</a></li>
+									<li>
+										<a href="#">Crash & Error Logs</a>
+										<ul>
+											<li><a href="ios-logs.html">iOS</a></li>
+											<li><a href="android-logs.html">Android</a></li>
+											<li><a href="browser-logs.html">Browser</a></li>
+										</ul>
+									</li>
+								</ul>
+							</li>
+							<li><a href="elements.html">Elements</a></li>
+							<li><a href="#two" class="button primary">Sign Up</a></li>
+						</ul>
+					</nav>
+				</header>
+
+			<!-- Main -->
+			<div id="main" class="wrapper style1">
+				<div class="container">
+
+					<header class="flex">
+						<h2>
+							iOS Crash & Error Logs
+						</h2>
+					</header>
+
+
+					<section id="content">
+
+						<!-- Quick anchor links -->
+						<div class="anchor-links">
+							<a href="#developer-options">→ Developer Options</a>
+							<a href="#adb-install">→ Install ADB</a>
+							<a href="#adb-usage">→ ADB Commands</a>
+						</div>
+
+						<h3 id="connected-device">
+							From a connected iOS device, open Xcode
+							<a class="heading-anchor" href="#connected-device">🔗</a>
+						</h3>
+
+						<ol>
+							<li>Connect the device via USB</li>
+							<li>Approve <strong>device connection</strong></li>
+							<li>Open <strong>Windows → Devices and Simulators.</strong></li>
+							<li>Reproduce the issue</li>
+                            <li>Choose Your Device from the "Devices" tab.</li>
+                            <li>Click "View Device Logs" to see the crash events with timestamps.</li>
+						</ol>
+
+						<div class="clean-image">
+							<img src="images/logcat-logs.png" alt="Android Studio Logcat Window" />
+						</div>
+
+						<details>
+							<summary>More details</summary>
+							<p>
+								Logcat displays real-time system logs from your device.
+								Crashes usually appear as <code>fatal or Exception</code> entries
+								under the <code>AndroidRuntime</code> tag.
+							</p>
+						</details>
+
+						<h4 id="filter-errors">
+							Filter for Errors
+							<a class="heading-anchor" href="#filter-errors">🔗</a>
+						</h4>
+
+						<ul>
+							<li>Log level: <strong>Error</strong></li>
+							<li>Keywords:
+								<ul>
+									<li><code>fatal</code></li>
+									<li><code>exception</code></li>
+								</ul>
+							</li>
+						</ul>
+
+						<hr />
+
+						<h3 id="developer-options">
+							Enable Developer Options
+							<a class="heading-anchor" href="#developer-options">🔗</a>
+						</h3>
+
+						<ol>
+							<li>Settings → About phone</li>
+							<li>Tap <strong>Build number</strong> 7 times</li>
+							<li>Settings → System → Developer options</li>
+							<li>Enable <strong>USB debugging</strong></li>
+						</ol>
+
+						<p><strong>Note:</strong> The location of <strong>Build number</strong> may vary depending on the device brand (Samsung, Pixel, OnePlus, Xiaomi, etc.).</p>
+
+						<details>
+							<summary>Why this is required</summary>
+							<p>
+								Developer Options unlock debugging access between your device
+								and computer. USB debugging is mandatory for both Logcat
+								and ADB-based log capture.
+							</p>
+						</details>
+
+						<hr />
+
+						<h3 id="adb-install">
+							Install Android ADB Tools
+							<a class="heading-anchor" href="#adb-install">🔗</a>
+						</h3>
+
+						<ol>
+							<li>Download Android Platform Tools</li>
+							<li>Extract to a known folder</li>
+							<li>Open a terminal in that folder</li>
+						</ol>
+
+						<pre><code>adb version</code></pre>
+
+						<details>
+							<summary>More about ADB</summary>
+							<p>
+								ADB (Android Debug Bridge) allows command-line access to
+								device logs and is ideal when Android Studio is unavailable
+								or for CI / automation environments.
+							</p>
+						</details>
+
+						<h4 id="adb-usage">
+							Common ADB Commands
+							<a class="heading-anchor" href="#adb-usage">🔗</a>
+						</h4>
+						<pre><code>adb devices -l</code></pre>
+						<pre><code>adb logcat</code></pre>
+						<pre><code>adb logcat *:E</code></pre>
+						<pre><code>adb logcat -d &gt; logcat.txt</code></pre>
+
+					</section>
+				</div>
+			</div>
+			
+			<!-- Two -->
+					<section id="two" class="wrapper style2 special fade">
+					<div class="container">
+						<header>
+						<h2>Stay Connected</h2>
+						<p>Get updates and resources straight to your inbox.</p>
+						</header>
+						
+						<form id="signup-form" class="cta">
+						<div class="row gtr-uniform gtr-50">
+							<div class="col-8 col-12-xsmall">
+							<input type="email" name="email" id="email" placeholder="Your Email Address" required />
+							</div>
+							<div class="col-4 col-12-xsmall">
+							<input type="submit" value="Sign Up" class="fit primary" />
+							</div>
+						</div>
+						</form>
+
+						<script>
+						document.addEventListener("DOMContentLoaded", function() {
+							const form = document.getElementById("signup-form");
+							if (!form) return;
+
+							form.addEventListener("submit", function(e) {
+							e.preventDefault();
+
+							const submitButton = form.querySelector('input[type="submit"]');
+							submitButton.value = "Submitting...";
+							submitButton.disabled = true;
+
+							// Prepare form data for sendBeacon
+							const params = new URLSearchParams();
+							params.append("email", form.email.value);
+
+							// Send email in background
+							navigator.sendBeacon("https://script.google.com/macros/s/AKfycbxG6yrlaM83XOP_CPaMASzCFdasH4rPQZV9dqGBUKD71JKrLMPshBoks-3P3AGCFPP-/exec", params);
+
+							// Delay slightly to ensure button text renders before redirect
+							setTimeout(() => {
+								window.location.href = "thankyou.html";
+							}, 50);
+							});
+						});
+						</script>
+					</div>
+					</section>
+
+			<!-- Footer -->
+			<footer id="footer">
+				<ul class="icons">
+					<li><a href="https://www.instagram.com/qatester1337/" class="icon brands alt fa-instagram"><span class="label">Instagram</span></a></li>
+					<li><a href="https://github.com/qa1337" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+				</ul>
+				<ul class="copyright">
+					<li>&copy; QA 1337. All rights reserved.</li>
+				</ul>
+			</footer>
+
+		</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/jquery.dropotron.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
