@@ -22,10 +22,8 @@ jobs:
         run: |
           mkdir _site
           rsync -a --exclude '.git' --exclude '.github' --exclude '.vscode' --exclude '_site' --exclude 'README.md' ./ _site/
-          # Keep QA out of search engines and mark the browser tab with [QA]
-          find _site -name '*.html' -exec sed -i \
-            -e 's#<head>#<head>\n<meta name="robots" content="noindex, nofollow">#' \
-            -e 's#<title>#<title>[QA] #' {} +
+          # Keep QA out of search engines, mark the tab with [QA] and add the QA banner (assets/qa.css)
+          python3 .github/qa-inject.py _site
           printf 'User-agent: *\nDisallow: /\n' > _site/robots.txt
           touch _site/.nojekyll
 
