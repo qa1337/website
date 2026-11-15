@@ -23,10 +23,7 @@
           Install Android platform tools and use adb to install apps, send files to the phone, take
           screenshots and control the device from your computer.
         </p>
-        <p class="related">
-          Related: <a href="adb-logs">ADB logs</a> ·
-          <a href="crash-logs">Android crash &amp; error logs</a>
-        </p>
+        <p class="related">Related: <a href="crash-logs">Android crash &amp; error logs</a></p>
 
         <h2>Install platform tools</h2>
         <p>
@@ -97,10 +94,9 @@ source ~/.zshrc</code></pre>
 List of devices attached
 R58M12ABCDE    device</code></pre>
         <p>
-          With more than one device or emulator connected, choose one with <code>-s</code> and the
-          serial number from <code>adb devices</code>:
+          With more than one device or emulator connected, every command needs to say which one to
+          use. See <a href="#choose-device">Choose the device</a>.
         </p>
-        <pre><code>adb -s R58M12ABCDE install app.apk</code></pre>
 
         <h3>Wireless debugging (Android 11 and later)</h3>
         <ol class="s">
@@ -142,6 +138,54 @@ adb pull /sdcard/DCIM/Camera/ ./photos/</code></pre>
           for example <code>adb push "my file.pdf" /sdcard/Download/</code>.
         </div>
 
+        <h3 id="choose-device">Choose the device when more than one is connected</h3>
+        <p>
+          If two or more phones, tablets or emulators are connected, adb doesn't know where to send
+          the file and stops with this error:
+        </p>
+        <pre><code>adb: more than one device/emulator</code></pre>
+        <ol class="s">
+          <li>List the connected devices with their model names:</li>
+        </ol>
+        <pre><code>adb devices -l
+List of devices attached
+R58M12ABCDE          device usb:1-1 product:a54xnsxx model:SM_A546E device:a54x
+emulator-5554        device product:sdk_gphone64_arm64 model:sdk_gphone64_arm64
+192.168.1.20:41000   device product:panther model:Pixel_7 device:panther</code></pre>
+        <ol class="s" start="2">
+          <li>
+            Find the device you want by its <code>model</code> and copy the ID in the first column.
+            USB devices show a serial number, emulators show <code>emulator-</code> plus a port, and
+            wireless devices show their IP address and port.
+          </li>
+          <li>Add <code>-s</code> and that ID right after <code>adb</code>:</li>
+        </ol>
+        <pre><code># Send a file to the Samsung only
+adb -s R58M12ABCDE push test-document.pdf /sdcard/Download/
+
+# Send the same file to the emulator
+adb -s emulator-5554 push test-document.pdf /sdcard/Download/
+
+# Works with every command, not only push
+adb -s 192.168.1.20:41000 install app.apk</code></pre>
+        <p>
+          To skip typing <code>-s</code> every time, set the device once for the current terminal
+          window:
+        </p>
+        <pre><code># macOS and Linux
+export ANDROID_SERIAL=R58M12ABCDE
+
+# Windows (PowerShell)
+$env:ANDROID_SERIAL="R58M12ABCDE"
+
+# Now this goes to R58M12ABCDE
+adb push test-document.pdf /sdcard/Download/</code></pre>
+        <p>
+          Shortcuts: <code>-d</code> uses the only device connected by USB, and <code>-e</code> uses
+          the only running emulator, for example
+          <code>adb -d push test-document.pdf /sdcard/Download/</code>.
+        </p>
+
         <h2>Install and manage apps</h2>
         <pre><code># Install an APK
 adb install app.apk
@@ -174,6 +218,31 @@ adb shell pm clear com.example.app
 
 # Grant a permission
 adb shell pm grant com.example.app android.permission.CAMERA</code></pre>
+
+        <h2 id="logs">Read logs</h2>
+        <p>
+          Logcat shows the device's live log. For collecting crashes for a bug report, see
+          <a href="crash-logs">Android crash &amp; error logs</a>.
+        </p>
+        <pre><code># Show warnings and errors with timestamps
+adb logcat -v time *:W
+
+# Show only one app
+adb logcat --pid=$(adb shell pidof -s com.example.app)
+
+# Clear old logs, then save new ones to a file (stop with Ctrl+C)
+adb logcat -c
+adb logcat -v time &gt; logcat.txt
+
+# Save only the crash messages
+adb logcat -b crash -d &gt; crash.txt
+
+# Full bug report with logs and system info
+adb bugreport bugreport.zip</code></pre>
+        <p>
+          The <code>--pid</code> example works on macOS and Linux. On Windows, run
+          <code>adb shell pidof -s com.example.app</code> first and use the number it prints.
+        </p>
 
         <h2>Screenshots and screen recordings</h2>
         <pre><code># Screenshot straight to your computer

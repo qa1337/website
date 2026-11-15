@@ -53,7 +53,6 @@
               path: "android/crash-logs",
             },
             { id: "android-adb", title: "Platform tools &amp; ADB", path: "android/adb" },
-            { id: "android-adb-logs", title: "ADB logs", path: "android/adb-logs" },
             { id: "android-emulators", title: "Emulators", path: "android/emulators" },
             {
               id: "android-fragmentation",
