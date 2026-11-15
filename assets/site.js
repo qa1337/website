@@ -1,5 +1,5 @@
 /* QA1337 Guidelines: shared header, sidebar, heading links, theme toggle.
-   To add a page: create the .html file, then add it to NAV below. */
+   To add a page: create the .html file (link to it without ".html"), then add it to NAV below. */
 (function(){
 var tag=document.querySelector('script[data-root]');
 var ROOT=tag?tag.getAttribute('data-root'):'';
@@ -11,27 +11,27 @@ var root=document.documentElement;
 var SIGNUP_URL='https://script.google.com/macros/s/AKfycbxG6yrlaM83XOP_CPaMASzCFdasH4rPQZV9dqGBUKD71JKrLMPshBoks-3P3AGCFPP-/exec';
 
 /* Top menu (centered header links) */
-var LINKS=[['overview','Overview','index.html'],['ios','iOS','ios/index.html'],['android','Android','android/index.html'],['web','Web','web/index.html'],['resources','Resources','resources/checklists.html']];
+var LINKS=[['overview','Overview','./'],['ios','iOS','ios/'],['android','Android','android/'],['web','Web','web/'],['resources','Resources','resources/checklists']];
 
 /* Sidebar: groups > items. An item with "items" is a collapsible category with its own landing page. */
 var NAV=[
- {t:'Overview',items:[{id:'index',title:'Getting started',path:'index.html',icon:'compass'}]},
+ {t:'Overview',items:[{id:'index',title:'Getting started',path:'./',icon:'compass'}]},
  {t:'Platforms',items:[
-  {id:'ios',title:'iOS',path:'ios/index.html',icon:'phone',items:[
-   {id:'ios-device-logs',title:'Device logs',path:'ios/device-logs.html'},
-   {id:'ios-simulators',title:'Simulators',path:'ios/simulators.html'},
-   {id:'ios-version-coverage',title:'Version coverage',path:'ios/version-coverage.html'}]},
-  {id:'android',title:'Android',path:'android/index.html',icon:'android',items:[
-   {id:'android-adb-logs',title:'ADB logs',path:'android/adb-logs.html'},
-   {id:'android-emulators',title:'Emulators',path:'android/emulators.html'},
-   {id:'android-fragmentation',title:'Device fragmentation',path:'android/device-fragmentation.html'}]},
-  {id:'web',title:'Web',path:'web/index.html',icon:'globe',items:[
-   {id:'web-console-logs',title:'Console logs',path:'web/console-logs.html'},
-   {id:'web-network',title:'Network debugging',path:'web/network-debugging.html'},
-   {id:'web-storage',title:'Storage and cookies',path:'web/storage-and-cookies.html'}]}]},
+  {id:'ios',title:'iOS',path:'ios/',icon:'phone',items:[
+   {id:'ios-device-logs',title:'Device logs',path:'ios/device-logs'},
+   {id:'ios-simulators',title:'Simulators',path:'ios/simulators'},
+   {id:'ios-version-coverage',title:'Version coverage',path:'ios/version-coverage'}]},
+  {id:'android',title:'Android',path:'android/',icon:'android',items:[
+   {id:'android-adb-logs',title:'ADB logs',path:'android/adb-logs'},
+   {id:'android-emulators',title:'Emulators',path:'android/emulators'},
+   {id:'android-fragmentation',title:'Device fragmentation',path:'android/device-fragmentation'}]},
+  {id:'web',title:'Web',path:'web/',icon:'globe',items:[
+   {id:'web-console-logs',title:'Console logs',path:'web/console-logs'},
+   {id:'web-network',title:'Network debugging',path:'web/network-debugging'},
+   {id:'web-storage',title:'Storage and cookies',path:'web/storage-and-cookies'}]}]},
  {t:'Resources',items:[
-  {id:'checklists',title:'Checklists',path:'resources/checklists.html',icon:'check'},
-  {id:'bug-reports',title:'Bug reports',path:'resources/bug-reports.html',icon:'bug'}]}
+  {id:'checklists',title:'Checklists',path:'resources/checklists',icon:'check'},
+  {id:'bug-reports',title:'Bug reports',path:'resources/bug-reports',icon:'bug'}]}
 ];
 
 var ICON={
@@ -64,7 +64,7 @@ var th=get('qa-theme');if(th)root.setAttribute('data-theme',th);
 var themeBtn='<button class="ib theme-btn" aria-label="Switch theme">'+svg('moon',18,2)+'</button>';
 document.querySelector('.gbar').innerHTML='<div class="inner"><a class="gbrand" href="https://qa1337.com">QA1337</a><div class="sp"></div>'+themeBtn+'</div>';
 var lk='';LINKS.forEach(function(l){lk+='<a href="'+ROOT+l[2]+'"'+(l[0]===SECTION?' aria-current="page"':'')+'>'+l[1]+'</a>'});
-document.querySelector('.lbar').innerHTML='<div class="inner"><button class="ib mobile-only" id="menu" aria-label="Toggle navigation">'+svg('menu',20,2)+'</button><a class="ltitle" href="'+ROOT+'index.html">Guidelines</a><div class="sp"></div><div class="links">'+lk+'</div><button class="btn" id="signup-open" type="button">Sign up</button>'+themeBtn.replace('class="ib theme-btn"','class="ib theme-btn mobile-only"')+'</div>';
+document.querySelector('.lbar').innerHTML='<div class="inner"><button class="ib mobile-only" id="menu" aria-label="Toggle navigation">'+svg('menu',20,2)+'</button><a class="ltitle" href="'+ROOT+'./">Guidelines</a><div class="sp"></div><div class="links">'+lk+'</div><button class="btn" id="signup-open" type="button">Sign up</button>'+themeBtn.replace('class="ib theme-btn"','class="ib theme-btn mobile-only"')+'</div>';
 
 /* Sidebar */
 var nav=document.getElementById('nav');

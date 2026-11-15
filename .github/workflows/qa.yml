@@ -1,0 +1,40 @@
+# Deploys the "qa" branch to the QA site (https://qa.qa1337.com), hosted by the qa1337/website-qa repo.
+# Flow: work on "qa" -> push -> check the QA site -> merge "qa" into "main" to go live.
+name: Deploy QA site
+
+on:
+  push:
+    branches: ["qa"]
+  workflow_dispatch:
+
+concurrency:
+  group: "qa"
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Build QA copy
+        run: |
+          mkdir _site
+          rsync -a --exclude '.git' --exclude '.github' --exclude '.vscode' --exclude '_site' --exclude 'README.md' ./ _site/
+          # Keep QA out of search engines and mark the browser tab with [QA]
+          find _site -name '*.html' -exec sed -i \
+            -e 's#<head>#<head>\n<meta name="robots" content="noindex, nofollow">#' \
+            -e 's#<title>#<title>[QA] #' {} +
+          printf 'User-agent: *\nDisallow: /\n' > _site/robots.txt
+          touch _site/.nojekyll
+
+      - name: Publish to qa1337/website-qa
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          deploy_key: ${{ secrets.QA_DEPLOY_KEY }}
+          external_repository: qa1337/website-qa
+          publish_branch: main
+          publish_dir: ./_site
+          cname: qa.qa1337.com
+          force_orphan: true
