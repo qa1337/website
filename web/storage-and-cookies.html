@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Storage and cookies – QA1337 Guidelines</title>
+<meta name="description" content="Inspect and reset browser storage.">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../assets/style.css">
+<script src="../assets/site.js" data-root="../" defer></script>
+</head>
+<body data-page="web-storage" data-section="web">
+<div class="gbar"></div>
+<header class="lbar"></header>
+<div class="wrap">
+<nav id="nav" aria-label="Guidelines"></nav>
+<main>
+<h1>Storage and cookies</h1>
+<p class="lead">Stale or corrupt browser data causes bugs that only appear for some users.</p>
+<h2>Inspect storage</h2>
+<p>Open DevTools and select the Application panel to view local storage, session storage, IndexedDB, and cookies.</p>
+<h2>Reset to a clean state</h2>
+<pre><code>localStorage.clear();
+sessionStorage.clear();</code></pre>
+<h2>Cookie flags to check</h2>
+<ul class="c"><li><code>Secure</code>: sent only over HTTPS.</li><li><code>HttpOnly</code>: not readable by scripts.</li><li><code>SameSite</code>: controls cross-site sending.</li></ul>
+</main>
+</div>
+</body>
+</html>
