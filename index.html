@@ -1,178 +1,27 @@
-<!DOCTYPE HTML>
-<!--
-	Landed by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
-<html>
-	<head>
-		<title>QA 1337</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-	</head>
-	<body class="is-preload landing">
-		<div id="page-wrapper">
-
-			<!-- Header -->
-				<header id="header">
-					<h1 id="logo"><a href="index.html">QA 1337</a></h1>
-					<nav id="nav">
-						<ul>
-							<li>
-								<a href="#">Toolbelt</a>
-								<ul>
-									<li><a href="left-sidebar.html">Left Sidebar</a></li>
-									<li><a href="right-sidebar.html">Right Sidebar</a></li>
-									<li><a href="no-sidebar.html">No Sidebar</a></li>
-									<li>
-										<a href="#">Crash & Error Logs</a>
-										<ul>
-											<li><a href="ios-logs.html">iOS</a></li>
-											<li><a href="android-device-logs.html">Android</a></li>
-											<li><a href="browser-logs.html">Browser</a></li>
-										</ul>
-									</li>
-								</ul>
-							</li>
-							<li><a href="elements.html">Elements</a></li>
-							<li><a href="#two" class="button primary">Sign Up</a></li>
-						</ul>
-					</nav>
-				</header>
-
-			<!-- Banner -->
-				<section id="banner">
-					<div class="content">
-						<header>
-							<h2>QA has landed</h2>
-							<p>And there are no issues or broken features.<br />
-							Just test cases. Lots of mother flipping test cases.</p>
-						</header>
-						<span class="image"><img src="images/qa-has-landed.png" alt="" /></span>
-					</div>
-					<a href="#one" class="goto-next scrolly">Next</a>
-				</section>
-			<!-- One -->
-				<section id="one" class="wrapper style1 special fade-up">
-					<div class="container">
-						<header class="major">
-						<h2>QA Tools & Debugging Resources</h2>
-						<p>Guides, tools and resources for debugging mobile, browser and API test issues.</p>
-						</header>
-						<div class="box alt">
-							<div class="row gtr-uniform">
-								<section class="col-4 col-6-medium col-12-xsmall">
-									<span class="icon solid alt major fa-vial"></span>
-									<h3>Ipsum sed commodo</h3>
-									<p>Feugiat accumsan lorem eu ac lorem amet accumsan donec. Blandit orci porttitor.</p>
-								</section>
-								<section class="col-4 col-6-medium col-12-xsmall">
-									<span class="icon solid alt major fa-exclamation-triangle"></span>
-									<h3><a href="android-device-logs.html">Crash & Error logs</a></h3>
-									<p>Get iOS / Android / Browser crash and error logs.</p>
-								</section>
-								<section class="col-4 col-6-medium col-12-xsmall">
-									<span class="icon solid alt major fa-flask"></span>
-									<h3>Cubilia cep lobortis</h3>
-									<p>Feugiat accumsan lorem eu ac lorem amet accumsan donec. Blandit orci porttitor.</p>
-								</section>
-								<section class="col-4 col-6-medium col-12-xsmall">
-									<span class="icon solid alt major fa-paper-plane"></span>
-									<h3>Non semper interdum</h3>
-									<p>Feugiat accumsan lorem eu ac lorem amet accumsan donec. Blandit orci porttitor.</p>
-								</section>
-								<section class="col-4 col-6-medium col-12-xsmall">
-									<span class="icon solid alt major fa-file"></span>
-									<h3>Odio laoreet accumsan</h3>
-									<p>Feugiat accumsan lorem eu ac lorem amet accumsan donec. Blandit orci porttitor.</p>
-								</section>
-								<section class="col-4 col-6-medium col-12-xsmall">
-									<span class="icon solid alt major fa-lock"></span>
-									<h3>Massa arcu accumsan</h3>
-									<p>Feugiat accumsan lorem eu ac lorem amet accumsan donec. Blandit orci porttitor.</p>
-								</section>
-							</div>
-						</div>
-						<footer class="major">
-							<ul class="actions special">
-								<li><a href="#" class="button">Magna sed feugiat</a></li>
-							</ul>
-						</footer>
-					</div>
-				</section>
-
-			<!-- Two -->
-				<section id="two" class="wrapper style2 special fade">
-				<div class="container">
-					<header>
-					<h2>Stay Connected</h2>
-					<p>Get updates and resources straight to your inbox.</p>
-					</header>
-
-					<form id="signup-form" class="cta">
-					<div class="row gtr-uniform gtr-50">
-						<div class="col-8 col-12-xsmall">
-						<input type="email" name="email" id="email" placeholder="Your Email Address" required />
-						</div>
-						<div class="col-4 col-12-xsmall">
-						<input type="submit" value="Sign Up" class="fit primary" />
-						</div>
-					</div>
-					</form>
-
-					<script>
-					document.addEventListener("DOMContentLoaded", function() {
-						const form = document.getElementById("signup-form");
-						if (!form) return;
-
-						form.addEventListener("submit", function(e) {
-						e.preventDefault();
-
-						const submitButton = form.querySelector('input[type="submit"]');
-						submitButton.value = "Submitting...";
-						submitButton.disabled = true;
-
-						// Prepare form data for sendBeacon
-						const params = new URLSearchParams();
-						params.append("email", form.email.value);
-
-						// Send email in background
-						navigator.sendBeacon("https://script.google.com/macros/s/AKfycbxG6yrlaM83XOP_CPaMASzCFdasH4rPQZV9dqGBUKD71JKrLMPshBoks-3P3AGCFPP-/exec", params);
-
-						// Delay slightly to ensure button text renders before redirect
-						setTimeout(() => {
-							window.location.href = "thankyou.html";
-						}, 50);
-						});
-					});
-					</script>
-				</div>
-				</section>
-
-			<!-- Footer -->
-				<footer id="footer">
-					<ul class="icons">
-						<li><a href="https://www.instagram.com/qatester1337/#" class="icon brands alt fa-instagram"><span class="label">Instagram</span></a></li>
-						<li><a href="https://github.com/qa1337" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
-					</ul>
-					<ul class="copyright">
-						<li>&copy; QA 1337. All rights reserved.</li>
-					</ul>
-				</footer>
-
-		</div>
-
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrolly.min.js"></script>
-			<script src="assets/js/jquery.dropotron.min.js"></script>
-			<script src="assets/js/jquery.scrollex.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
-
-	</body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Getting started – QA1337 Guidelines</title>
+<meta name="description" content="Practical guides for mobile and web quality assurance.">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/style.css">
+<script src="assets/site.js" data-root="" defer></script>
+</head>
+<body data-page="index" data-section="overview">
+<div class="gbar"></div>
+<header class="lbar"></header>
+<div class="wrap">
+<nav id="nav" aria-label="Guidelines"></nav>
+<main>
+<h1>Getting started</h1>
+<p class="lead">Practical guides for mobile and web quality assurance, from first test plan to release sign-off.</p>
+<div class="tiles"><a class="tile" href="ios/index.html"><span class="thumb g-ios"><span class="ti" data-i="phone"></span></span><span class="tt">iOS</span></a><a class="tile" href="android/index.html"><span class="thumb g-android"><span class="ti" data-i="android"></span></span><span class="tt">Android</span></a><a class="tile" href="web/index.html"><span class="thumb g-web"><span class="ti" data-i="globe"></span></span><span class="tt">Web</span></a><a class="tile" href="resources/checklists.html"><span class="thumb g-res"><span class="ti" data-i="check"></span></span><span class="tt">Resources</span></a></div>
+<h2>Principles</h2>
+<p>Good QA is repeatable. Every guide here follows the same shape: what you need, how to do it, and how to confirm it worked.</p>
+<div class="note"><b>Placeholder content</b>Replace this copy with your real guides. The layout, sidebar, and tiles are the part to keep.</div>
+</main>
+</div>
+</body>
 </html>

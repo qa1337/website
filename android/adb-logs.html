@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ADB logs – QA1337 Guidelines</title>
+<meta name="description" content="Collect logs from an Android device with adb.">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../assets/style.css">
+<script src="../assets/site.js" data-root="../" defer></script>
+</head>
+<body data-page="android-adb-logs" data-section="android">
+<div class="gbar"></div>
+<header class="lbar"></header>
+<div class="wrap">
+<nav id="nav" aria-label="Guidelines"></nav>
+<main>
+<h1>ADB logs</h1>
+<p class="lead">Use adb to read logs, filter by app, and capture a full bug report.</p>
+<h2>Read the log</h2>
+<pre><code>adb devices
+adb logcat -v time *:W</code></pre>
+<h2>Filter to one app</h2>
+<pre><code>adb logcat --pid=$(adb shell pidof -s com.example.app)</code></pre>
+<h2>Capture a bug report</h2>
+<pre><code>adb bugreport bugreport.zip</code></pre>
+</main>
+</div>
+</body>
+</html>
