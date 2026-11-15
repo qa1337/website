@@ -35,6 +35,7 @@
           path: "ios/",
           icon: "phone",
           items: [
+            { id: "ios-crash-logs", title: "Crash &amp; error logs", path: "ios/crash-logs" },
             { id: "ios-device-logs", title: "Device logs", path: "ios/device-logs" },
             { id: "ios-simulators", title: "Simulators", path: "ios/simulators" },
             { id: "ios-version-coverage", title: "Version coverage", path: "ios/version-coverage" },
@@ -46,6 +47,11 @@
           path: "android/",
           icon: "android",
           items: [
+            {
+              id: "android-crash-logs",
+              title: "Crash &amp; error logs",
+              path: "android/crash-logs",
+            },
             { id: "android-adb-logs", title: "ADB logs", path: "android/adb-logs" },
             { id: "android-emulators", title: "Emulators", path: "android/emulators" },
             {
@@ -61,6 +67,7 @@
           path: "web/",
           icon: "globe",
           items: [
+            { id: "web-crash-logs", title: "Exception &amp; error logs", path: "web/crash-logs" },
             { id: "web-console-logs", title: "Console logs", path: "web/console-logs" },
             { id: "web-network", title: "Network debugging", path: "web/network-debugging" },
             { id: "web-storage", title: "Storage and cookies", path: "web/storage-and-cookies" },
