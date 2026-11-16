@@ -119,6 +119,12 @@
       items: [
         { id: "checklists", title: "Checklists", path: "resources/checklists", icon: "check" },
         { id: "bug-reports", title: "Bug reports", path: "resources/bug-reports", icon: "bug" },
+        {
+          id: "screen-capture",
+          title: "Screenshots &amp; recording",
+          path: "resources/screen-capture",
+          icon: "camera",
+        },
       ],
     },
   ];
@@ -148,6 +154,8 @@
     plusminus: '<path d="M7 5v6M4 8h6M14 16h6M19 5 5 19"/>',
     target:
       '<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/>',
+    camera:
+      '<path d="M4 8a2 2 0 0 1 2-2h2l1.5-2h5L16 6h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2z"/><circle cx="12" cy="12.5" r="3.5"/>',
     filter: '<path d="M4 7h16M7 12h10M10 17h4"/>',
     link: '<path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>',
     moon: '<path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/>',
