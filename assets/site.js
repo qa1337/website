@@ -38,7 +38,6 @@
             { id: "ios-crash-logs", title: "Crash &amp; error logs", path: "ios/crash-logs" },
             { id: "ios-device-logs", title: "Device logs", path: "ios/device-logs" },
             { id: "ios-simulators", title: "Simulators", path: "ios/simulators" },
-            { id: "ios-version-coverage", title: "Version coverage", path: "ios/version-coverage" },
           ],
         },
         {
