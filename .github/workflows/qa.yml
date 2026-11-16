@@ -1,5 +1,5 @@
 # Deploys the "qa" branch to the QA site (https://qa.qa1337.com), hosted by the qa1337/website-qa repo.
-# Flow: work on "qa" -> push -> check the QA site -> merge "qa" into "main" to go live.
+# Flow: work on "qa" -> push -> check the QA site -> merge "qa" into "master" to go live.
 name: Deploy QA site
 
 on:
