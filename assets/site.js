@@ -17,6 +17,7 @@
     ["ios", "iOS", "ios/"],
     ["android", "Android", "android/"],
     ["web", "Web", "web/"],
+    ["fundamentals", "Fundamentals", "fundamentals/"],
     ["resources", "Resources", "resources/checklists"],
   ];
 
@@ -75,6 +76,45 @@
       ],
     },
     {
+      t: "Fundamentals",
+      items: [
+        {
+          id: "fundamentals",
+          title: "QA fundamentals",
+          path: "fundamentals/",
+          icon: "book",
+          items: [
+            {
+              id: "fund-methods",
+              title: "Black, white &amp; grey box",
+              path: "fundamentals/test-methods",
+            },
+            { id: "fund-levels", title: "Test levels", path: "fundamentals/test-levels" },
+            {
+              id: "fund-types",
+              title: "Functional &amp; non-functional",
+              path: "fundamentals/test-types",
+            },
+            {
+              id: "fund-smoke",
+              title: "Smoke, sanity &amp; regression",
+              path: "fundamentals/smoke-sanity-regression",
+            },
+            {
+              id: "fund-positive-negative",
+              title: "Positive &amp; negative",
+              path: "fundamentals/positive-negative",
+            },
+            {
+              id: "fund-design",
+              title: "Test design techniques",
+              path: "fundamentals/test-design",
+            },
+          ],
+        },
+      ],
+    },
+    {
       t: "Resources",
       items: [
         { id: "checklists", title: "Checklists", path: "resources/checklists", icon: "check" },
@@ -99,6 +139,15 @@
       '<ellipse cx="12" cy="6" rx="7" ry="3"/><path d="M5 6v6c0 1.7 3.1 3 7 3s7-1.3 7-3V6M5 12v6c0 1.7 3.1 3 7 3s7-1.3 7-3v-6"/>',
     check: '<rect x="4" y="4" width="16" height="16" rx="3"/><path d="m8.5 12 2.5 2.5 4.5-5"/>',
     bug: '<rect x="8" y="8" width="8" height="12" rx="4"/><path d="M12 8V5M8 12H4M16 12h4M9 8 7 5M15 8l2-3M8 17l-3 1M16 17l3 1"/>',
+    book: '<path d="M5 4h13v16H7a2 2 0 0 1-2-2z"/><path d="M5 18a2 2 0 0 1 2-2h11M9 8h6"/>',
+    box: '<path d="m12 3 8 4.5v9L12 21l-8-4.5v-9z"/><path d="m4 7.5 8 4.5 8-4.5M12 12v9"/>',
+    grid:
+      '<rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/>',
+    refresh:
+      '<path d="M20 11a8 8 0 0 0-14.9-3M4 13a8 8 0 0 0 14.9 3"/><path d="M5 3v5h5M19 21v-5h-5"/>',
+    plusminus: '<path d="M7 5v6M4 8h6M14 16h6M19 5 5 19"/>',
+    target:
+      '<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/>',
     filter: '<path d="M4 7h16M7 12h10M10 17h4"/>',
     link: '<path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>',
     moon: '<path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/>',
