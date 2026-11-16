@@ -318,6 +318,12 @@
     });
   });
 
+  /* Footer */
+  var foot = document.createElement("footer");
+  foot.className = "foot";
+  foot.innerHTML = '<div class="inner">Copyright © ' + new Date().getFullYear() + " QA1337. All rights reserved.</div>";
+  document.body.appendChild(foot);
+
   /* Tile icons */
   document.querySelectorAll("[data-i]").forEach(function (e) {
     e.innerHTML = svg(e.getAttribute("data-i"), 28);

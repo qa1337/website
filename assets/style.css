@@ -181,6 +181,22 @@ main {
   min-width: 0;
 }
 
+/* Footer */
+.foot {
+  position: relative;
+  z-index: 26;
+  border-top: 1px solid var(--line);
+  background: var(--side);
+  color: var(--mute);
+  font-size: 13px;
+}
+.foot .inner {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 20px 24px calc(20px + env(safe-area-inset-bottom, 0px));
+  justify-content: center;
+}
+
 /* Sidebar */
 .search {
   display: flex;
