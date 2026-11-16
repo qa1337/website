@@ -427,6 +427,9 @@ h3:hover .anc,
 .g-web {
   background: linear-gradient(135deg, #ffa24c, #e5567f);
 }
+.g-fund {
+  background: linear-gradient(135deg, #c471f5, #fa71cd);
+}
 .g-res {
   background: linear-gradient(135deg, #9a9aa2, #4a4a50);
 }
